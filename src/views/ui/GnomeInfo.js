@@ -12,6 +12,12 @@ const GnomeInfo = styled.div`
       grid-template-columns: 1fr 1fr 1fr;
       line-height: 1.3;
     `};
+  ${props =>
+    props.friend &&
+    css`
+      grid-template-columns: 1fr;
+      justify-content: center;
+    `};
 `;
 
 export default GnomeInfo;

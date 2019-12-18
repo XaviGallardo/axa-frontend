@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { convertColorToHex } from '../functions';
+import { convertColorToHex, getName } from '../functions';
 import GnomeCard from './ui/GnomeCard';
 import GnomeName from './ui/GnomeName';
 import GnomeCharacteristics from './ui/GnomeCharacteristics';
 import GnomePicture from './ui/GnomePicture';
 import GnomeInfo from './ui/GnomeInfo';
 import GnomeProfessions from './ui/GnomeProfessions';
+import GnomeCardInfo from './GnomeCardInfo';
+import Friends from './ui/Friends';
+import GnomeCardFriend from './GnomeCardFriend';
 
 const GnomeDetail = ({ Brastlewark }) => {
-  const { id } = useParams();
-  console.log('TCL: GnomeDetail -> id', id);
-  const gnome = Brastlewark[id];
-  console.log('TCL: GnomeDetail -> gnome', gnome);
+  const { urlName } = useParams();
+  const gnomeName = getName(urlName);
+
+  const gnome = Brastlewark.find(gnome => gnome.name === gnomeName);
+
   return (
-    <div>
-      <div style={{ height: '80px' }} />
+    <>
+      <div style={{ height: '65px' }} />
       <GnomeCard hairColor={convertColorToHex(gnome.hair_color)}>
         <GnomeName>{gnome.name}</GnomeName>
         <GnomePicture detailed hairColor={convertColorToHex(gnome.hair_color)}>
@@ -61,13 +65,29 @@ const GnomeDetail = ({ Brastlewark }) => {
           {gnome.friends.length > 0
             ? `Friends: 
           ${gnome.friends.length}`
-            : null}
+            : `Sorry, No Friends!!`}
         </h3>
-        <h3>
-          {gnome.friends.length > 0 ? gnome.friends.join(' || ') : 'No FRIENDS'}
-        </h3>
+
+        <Friends>
+          {gnome.friends.map((gnomeFriendName, index) => {
+            console.log('TCL: GnomeDetail -> gnomeFriend', gnomeFriendName);
+            const gnomeFriend = Brastlewark.find(
+              gnome => gnome.name === gnomeFriendName,
+            );
+            return (
+              <Link
+                to={`/gnome/${gnomeFriend.id}-${gnomeFriend.name
+                  .split(' ')
+                  .join('-')}`}
+                key={`index-${index}`}
+              >
+                <GnomeCardFriend index={index} gnome={gnomeFriend} />
+              </Link>
+            );
+          })}
+        </Friends>
       </GnomeCard>
-    </div>
+    </>
   );
 };
 

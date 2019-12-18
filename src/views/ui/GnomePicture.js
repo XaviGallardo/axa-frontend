@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const GnomePicture = styled.div`
   height: 105px;
   width: 105px;
+  margin: 0 auto;
   img {
     height: 100%;
     width: 100%;
@@ -15,8 +16,8 @@ const GnomePicture = styled.div`
   ${props =>
     props.detailed &&
     css`
-      height: 180px;
-      width: 180px;
+      height: 150px;
+      width: 150px;
       margin: 0 auto;
     `};
 `;

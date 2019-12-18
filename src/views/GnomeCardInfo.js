@@ -53,6 +53,10 @@ const GnomeCardInfo = ({ index, gnome }) => (
           ? gnome.professions.join(' & ')
           : 'No Profession'}
       </p>
+
+      {/* <p>
+
+      </p> */}
     </GnomeProfessions>
   </GnomeCard>
 );

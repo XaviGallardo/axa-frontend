@@ -24,3 +24,11 @@ export function convertColorToHex(color) {
   }
   return hexColor;
 }
+
+export function getName(urlName) {
+  const name = urlName
+    .split('-')
+    .slice(1)
+    .join(' ');
+  return name;
+}

@@ -101,7 +101,7 @@ class App extends Component {
             <Route exact path="/">
               <Home Brastlewark={Brastlewark} />
             </Route>
-            <Route exact path="/gnome/:id">
+            <Route exact path="/gnome/:urlName">
               <GnomeDetail Brastlewark={Brastlewark} />
             </Route>
           </div>

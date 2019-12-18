@@ -8,10 +8,13 @@ const Home = ({ Brastlewark }) => {
   return (
     <div>
       {/* {console.log('TCL: Home -> Brastlewark', Brastlewark)} */}
-      <div style={{ height: '80px' }} />
+      <div style={{ height: '65px' }} />
       {Brastlewark.map((gnome, index) => {
         return (
-          <Link to={`/gnome/${gnome.id}`} key={`index-${index}`}>
+          <Link
+            to={`/gnome/${gnome.id}-${gnome.name.split(' ').join('-')}`}
+            key={`index-${index}`}
+          >
             <GnomeCardInfo index={index} gnome={gnome} />
           </Link>
         );
