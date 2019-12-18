@@ -1,43 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+import GnomeCardInfo from './GnomeCardInfo';
 
 const Home = ({ Brastlewark }) => {
   return (
     <div>
       {/* {console.log('TCL: Home -> Brastlewark', Brastlewark)} */}
-
+      <div style={{ height: '80px' }} />
       {Brastlewark.map((gnome, index) => {
         return (
-          <div key={`index-${index}`}>
-            <Link to={`/gnome/${gnome.id}`}>
-              <img
-                style={{ width: '25%', border: '1px solid black' }}
-                src={gnome.thumbnail}
-                alt="gnome"
-              />
-              <h3>{gnome.name}</h3>
-              <h3>
-                Age:
-                {gnome.age}
-              </h3>
-              <h3>
-                Weight:
-                {gnome.weight}
-              </h3>
-              <h3>
-                Height:
-                {gnome.height}
-              </h3>
-              <h3>
-                Hair Color:
-                {gnome.hair_color}
-              </h3>
-            </Link>
-          </div>
+          <Link to={`/gnome/${gnome.id}`} key={`index-${index}`}>
+            <GnomeCardInfo index={index} gnome={gnome} />
+          </Link>
         );
       })}
     </div>
   );
+};
+
+Home.propTypes = {
+  Brastlewark: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Home;
