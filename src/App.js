@@ -23,7 +23,8 @@ const Logo = styled.h1`
   transform: skew(-7deg);
   left: 0px;
   right: 0px;
-  
+  background-color:white;
+
   a {
     padding: 0.5rem 1rem;
     background: ${props => props.theme.red};

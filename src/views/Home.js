@@ -46,8 +46,8 @@ class Home extends Component {
 
     return (
       <div>
-        <div style={{ height: '65px' }} />
         <Search handleSearch={this.handleSearch} />
+        <div style={{ height: '120px' }} />
         {searchGnomes.map((gnome, index) => {
           return (
             <Link
