@@ -88,7 +88,7 @@ class App extends Component {
 
   render() {
     const { Brastlewark } = this.state;
-    console.log('TCL: App -> render -> Brastlewark', Brastlewark);
+
     return (
       <Router>
         <ThemeProvider theme={theme}>

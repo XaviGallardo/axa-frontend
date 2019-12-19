@@ -70,7 +70,6 @@ const GnomeDetail = ({ Brastlewark }) => {
 
         <Friends>
           {gnome.friends.map((gnomeFriendName, index) => {
-            console.log('TCL: GnomeDetail -> gnomeFriend', gnomeFriendName);
             const gnomeFriend = Brastlewark.find(
               gnome => gnome.name === gnomeFriendName,
             );
