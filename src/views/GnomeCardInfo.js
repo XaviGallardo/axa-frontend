@@ -43,8 +43,7 @@ const GnomeCardInfo = ({ index, gnome }) => (
     <GnomeProfessions>
       <p>
         {gnome.professions.length > 0
-          ? `Professions: 
-                  ${gnome.professions.length}`
+          ? `${gnome.professions.length} Professions`
           : null}
       </p>
 

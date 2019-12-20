@@ -50,8 +50,7 @@ const GnomeDetail = ({ Brastlewark }) => {
         <GnomeProfessions>
           <p>
             {gnome.professions.length > 0
-              ? `Professions: 
-                  ${gnome.professions.length}`
+              ? `${gnome.professions.length} Professions`
               : null}
           </p>
 
@@ -63,8 +62,7 @@ const GnomeDetail = ({ Brastlewark }) => {
         </GnomeProfessions>
         <h3>
           {gnome.friends.length > 0
-            ? `Friends: 
-          ${gnome.friends.length}`
+            ? `${gnome.friends.length} Friends`
             : `Sorry, No Friends!!`}
         </h3>
 
