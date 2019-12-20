@@ -40,10 +40,10 @@ class Home extends Component {
 
     if (distanceY > shrinkOn) {
       headerEl.classList.add('smaller');
-      searchbarEl.classList.add('smaller');
+      searchbarEl && searchbarEl.classList.add('smaller');
     } else {
       headerEl.classList.remove('smaller');
-      searchbarEl.classList.remove('smaller');
+      searchbarEl && searchbarEl.classList.remove('smaller');
     }
   }
 
