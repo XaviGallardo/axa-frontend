@@ -20,6 +20,7 @@ class Home extends Component {
       Brastlewark: [...this.props.Brastlewark],
       searchGnomes: [...this.props.Brastlewark],
     });
+    window.addEventListener('scroll', this.resizeHeaderOnScroll);
   }
 
   componentDidUpdate(prevProps) {
@@ -28,6 +29,21 @@ class Home extends Component {
         Brastlewark: [...this.props.Brastlewark],
         searchGnomes: [...this.props.Brastlewark],
       });
+    }
+  }
+
+  resizeHeaderOnScroll() {
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 200,
+      headerEl = document.getElementById('logo');
+    const searchbarEl = document.getElementById('searchbar');
+
+    if (distanceY > shrinkOn) {
+      headerEl.classList.add('smaller');
+      searchbarEl.classList.add('smaller');
+    } else {
+      headerEl.classList.remove('smaller');
+      searchbarEl.classList.remove('smaller');
     }
   }
 

@@ -25,6 +25,12 @@ const Logo = styled.h1`
   right: 0px;
   background-color:white;
 
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
   a {
     padding: 0.5rem 1rem;
     background: ${props => props.theme.red};
@@ -95,7 +101,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <div className="App">
-            <Logo>
+            <Logo id="logo">
               <Link to="/">Brastlewark</Link>
             </Logo>
 

@@ -10,6 +10,13 @@ const SearchBar = styled.div`
   background-color: white;
   color: red;
   padding-bottom: 1rem;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
   input {
     background-color: white;
     border: 1px solid black;
@@ -28,7 +35,7 @@ class Search extends Component {
   };
   render() {
     return (
-      <SearchBar>
+      <SearchBar id="searchbar">
         <label>Search by Name:</label>
         <input
           type="text"
