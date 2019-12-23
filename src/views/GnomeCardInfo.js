@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Img from 'react-image';
+import { Default } from 'react-awesome-spinners';
 import { convertColorToHex } from '../functions';
 import GnomeCard from './ui/GnomeCard';
 import GnomeName from './ui/GnomeName';
@@ -17,9 +19,10 @@ const GnomeCardInfo = ({ index, gnome }) => (
     <GnomeName>{gnome.name}</GnomeName>
     <GnomeInfo>
       <GnomePicture hairColor={convertColorToHex(gnome.hair_color)}>
-        <img
+        <Img
           // style={{ width: '25%', border: '1px solid black' }}
           src={gnome.thumbnail}
+          loader={<Default color="#FF0000" />}
           alt="gnome"
         />
       </GnomePicture>

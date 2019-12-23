@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Default } from 'react-awesome-spinners';
 
 import gnomeService from '../services/gnomeService';
 import GnomeCardInfo from './GnomeCardInfo';
@@ -19,6 +20,7 @@ class Home extends Component {
     this.setState({
       Brastlewark: [...this.props.Brastlewark],
       searchGnomes: [...this.props.Brastlewark],
+      isLoading: this.props.isLoading,
     });
     window.addEventListener('scroll', this.resizeHeaderOnScroll);
   }
@@ -28,6 +30,7 @@ class Home extends Component {
       this.setState({
         Brastlewark: [...this.props.Brastlewark],
         searchGnomes: [...this.props.Brastlewark],
+        isLoading: this.props.isLoading,
       });
     }
   }
@@ -58,22 +61,28 @@ class Home extends Component {
   };
 
   render() {
-    const { Brastlewark, searchGnomes } = this.state;
+    const { isLoading, Brastlewark, searchGnomes } = this.state;
 
     return (
       <div>
         <Search handleSearch={this.handleSearch} />
-        <div style={{ height: '120px' }} />
-        {searchGnomes.map((gnome, index) => {
-          return (
-            <Link
-              to={`/gnome/${gnome.id}-${gnome.name.split(' ').join('-')}`}
-              key={`index-${index}`}
-            >
-              <GnomeCardInfo index={index} gnome={gnome} />
-            </Link>
-          );
-        })}
+        <div style={{ height: '130px' }} />
+        {isLoading ? (
+          <Default color="#FF0000" />
+        ) : (
+          <>
+            {searchGnomes.map((gnome, index) => {
+              return (
+                <Link
+                  to={`/gnome/${gnome.id}-${gnome.name.split(' ').join('-')}`}
+                  key={`index-${index}`}
+                >
+                  <GnomeCardInfo index={index} gnome={gnome} />
+                </Link>
+              );
+            })}
+          </>
+        )}
       </div>
     );
   }

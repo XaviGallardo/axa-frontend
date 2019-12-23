@@ -84,17 +84,21 @@ class App extends Component {
     super(props);
     this.state = {
       Brastlewark: [],
+      isLoading: true,
     };
   }
 
   componentDidMount() {
     gnomeService.getCensus().then(Brastlewark => {
-      this.setState({ Brastlewark });
+      this.setState({
+        Brastlewark,
+        isLoading: false,
+      });
     });
   }
 
   render() {
-    const { Brastlewark } = this.state;
+    const { isLoading, Brastlewark } = this.state;
 
     return (
       <Router>
@@ -106,7 +110,7 @@ class App extends Component {
             </Logo>
 
             <Route exact path="/">
-              <Home Brastlewark={Brastlewark} />
+              <Home Brastlewark={Brastlewark} isLoading={isLoading} />
             </Route>
             <Route exact path="/gnome/:urlName">
               <GnomeDetail Brastlewark={Brastlewark} />

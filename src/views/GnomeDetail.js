@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Img from 'react-image';
+import { Default } from 'react-awesome-spinners';
 import { convertColorToHex, getName } from '../functions';
 import GnomeCard from './ui/GnomeCard';
 import GnomeName from './ui/GnomeName';
@@ -23,9 +25,10 @@ const GnomeDetail = ({ Brastlewark }) => {
       <GnomeCard hairColor={convertColorToHex(gnome.hair_color)}>
         <GnomeName>{gnome.name}</GnomeName>
         <GnomePicture detailed hairColor={convertColorToHex(gnome.hair_color)}>
-          <img
+          <Img
             // style={{ width: '25%', border: '1px solid black' }}
             src={gnome.thumbnail}
+            loader={<Default color="#FF0000" />}
             alt="gnome"
           />
         </GnomePicture>

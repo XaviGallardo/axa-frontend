@@ -19,29 +19,32 @@ const SearchBar = styled.div`
 
   input {
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid #ff0000;
     border-radius: 10px;
     padding: 1rem 0;
     margin-left: 0.5rem;
     font-size: 2rem;
+    width: 80%;
+    padding-left: 1rem;
   }
 `;
 
 class Search extends Component {
   handleSearchName = event => {
     const { handleSearch } = this.props;
-
-    handleSearch(event.target.value);
+    const { value } = event.target;
+    handleSearch(value);
   };
   render() {
     return (
       <SearchBar id="searchbar">
-        <label>Search by Name:</label>
+        {/* <label>Search by Name:</label> */}
         <input
           type="text"
           name="name"
+          placeholder="Search by Name"
           defaultValue=""
-          onChange={e => this.handleSearchName(e)}
+          onChange={this.handleSearchName}
         />
       </SearchBar>
     );
