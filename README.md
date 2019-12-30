@@ -1,8 +1,47 @@
+# axa-frontend
+
+Assessment AXA - Brastlewark
+
+You can view the App on the LINK --> https://brastlewark.netlify.com/
+
+## Description
+
+Little React project to facilitate trade with the local population of Brastlewark.
+
+You can browse all the inhabitants details.
+
+You can search by Gnome Name and view the detail and friends of each Gnome.
+
+### UI only for smartphones
+
+### Backlog
+
+Fix some UI problem in IOS.
+
+Sort & Filter extra info.
+
+Testing with Jest
+
+Maybe Redux
+
+## REACT APP
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+To Run the App locally, clone or download from the repo to your computer and in the project directory, follow the next steps as you want/need.
+
+Recommended:
+
+1.- npm install
+2.- npm start
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+to install the dependencies.
 
 ### `npm start`
 
